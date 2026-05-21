@@ -19,6 +19,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">Vaibhav</div>
+        <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
         <ul class="nav-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="index.html#about">About</a></li>
@@ -84,6 +85,23 @@
                 navbar.classList.remove('hidden');
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinksContainer = document.querySelector('.nav-links');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active');
+            });
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+            });
         });
     </script>
 </body>

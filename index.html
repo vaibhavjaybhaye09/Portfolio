@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/vj.png">
     <title>Vaibhav Jaybhaye | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/style.css">
@@ -14,6 +15,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">Vaibhav</div>
+        <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -442,6 +444,23 @@
             
             setTimeout(animateBouncers, 300); // wait for fonts to load
         }
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinksContainer = document.querySelector('.nav-links');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active');
+            });
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+            });
+        });
     </script>
 </body>
 
